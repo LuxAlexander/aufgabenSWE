@@ -8,27 +8,27 @@
 
 /*Uebung 2 erweitert*/
 int main(void) {
-    float euro=0,kurs=0,money=0;
+    float inmoney=0,kurs=0,outmoney=0;
     char tocurrency[]={"USD"};
 
     printf("Wechselkurs Berechnung von Euro <-> USD!\n");
-    printf("Bitte geben Sie einen Wechselkurs ein:\n");//Freundliche Benutzerausgabe, was zu tun ist, asume no airressistance, otherwise I would flush wrong input here and loop
+    printf("Bitte geben Sie den Euro->USD Wechselkurs ein:\n");//Freundliche Benutzerausgabe
     scanf("%f",&kurs);
 
-    printf("Bitte geben Sie einen Betrag ein:\n");//euro betrag eingeben
-    scanf("%f",&euro);
+    printf("Bitte geben Sie einen Betrag ein:\n");//betrag eingeben
+    scanf("%f",&inmoney);
 
     printf("Geben sie 'EUR' oder 'USD' ein, je nachdem zu was sie wechseln moechten:");
     scanf("%s",&tocurrency);
 
     if(strcmp(tocurrency,"USD")==0) {
-        money=kurs*euro;
+        outmoney=kurs*inmoney;
     }else if(strcmp(tocurrency,"EUR")==0) {
-        money=euro/kurs;
+        outmoney=inmoney/kurs;
     }else {
         printf("No such currency");
     }
-    printf("\nEingabe Betrag: %.2f entspricht bei einem Wechselkurs von %.3f -> %.1f %s",euro,kurs,money,tocurrency);//Ergebnis
+    printf("\nEingabe Betrag: %.2f entspricht bei einem Wechselkurs von %.3f -> %.1f %s",inmoney,kurs,outmoney,tocurrency);//Ergebnis
 
     return 0;
 }
