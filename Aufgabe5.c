@@ -28,4 +28,6 @@ void guess(int rnd) {
             return;
         }
     }
+    
+    printf("Nice Try, No guesses left, Number was %d", rnd);
 }
