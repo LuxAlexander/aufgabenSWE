@@ -6,7 +6,7 @@
  *Das Ergebnis soll dann ausgegeben werden. Es sollen keine string.h Funktionen verwendet werden*/
 
 int main(void) {
-    char str[len],str2[len],str3[len*2];
+    char str[len]="",str2[len]="",str3[len*2]="";
     int i=0,j=0;//i is for the index for the two strings and j to track the current element for the combination
 
     printf("Ersten String eingeben!\n");
@@ -29,7 +29,7 @@ int main(void) {
         i++;
     }
 
-    str3[j]='\0';//the last place of the combination should be the terminator
+    str3[j+i]='\0';//the last place of the combination should be the terminator
 
     printf("Kombination: %s",str3);
     return 0;
