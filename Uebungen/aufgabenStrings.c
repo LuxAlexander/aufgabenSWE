@@ -57,7 +57,6 @@ void checkp(char arr[]){
        }
     }
     printf("Palindrome\n");
-    return;
 }
 void up(char arr[]){
    for(int i=0;i<count(arr);i++){
