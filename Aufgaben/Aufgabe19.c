@@ -44,28 +44,13 @@ int main(void)
 
     for(int k = 0; k < i; k++) {
         for(int j = 0; j < i; j++) {
-            //Schleife ueber die namen
-            if(c[k].Name[0] > c[j].Name[0]) {
-                strcpy(temp.Name, c[k].Name);
-                strcpy(temp.Adresse, c[k].Adresse);
-                strcpy(temp.EMail, c[k].EMail);
-                //temp=a
-                //a=b
-                //b=temp
-                strcpy(c[k].Name,c[j].Name);
-                strcpy(c[k].Adresse, c[j].Adresse);
-                strcpy(c[k].EMail, c[j].EMail);
+            if(strcmp(c[k].Name,c[j].Name)>0) {
 
-                strcpy(c[j].Name, temp.Name);
-                strcpy(c[j].Adresse, temp.Adresse);
-                strcpy(c[j].EMail, temp.EMail);
-
-                /*
                 swap(&c[k], &temp);
 
                 swap(&c[j], &c[k]);
 
-                swap(&c[j], &temp);*/
+                swap(&temp, &c[j]);
             }
         }
     }
