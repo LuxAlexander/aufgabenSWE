@@ -36,18 +36,21 @@ int main(void)
             scanf("%s", c[i].Adresse);
             printf("Enter EMail:\n");
             scanf("%s", c[i].EMail);
-        }else exit=1;
-
+        }else {
+            exit=1;
+            i--;
+        }
     }
-    i--;
+
     for(int k = 0; k < i; k++) {
         for(int j = 0; j < i; j++) {
-            if(c[k].Name[0] > c[j].Name[0]) {
+            if(strcmp(c[k].Name,c[j].Name)>0) {
+
                 swap(&c[k], &temp);
 
                 swap(&c[j], &c[k]);
 
-                swap(&c[j], &temp);
+                swap(&temp, &c[j]);
             }
         }
     }
