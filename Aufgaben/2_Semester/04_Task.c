@@ -19,7 +19,7 @@ void reallocate(Visitor**, int*);
 void visit(Visitor*, int*);
 void printall(Visitor*, int*);
 
-void cut(char*);
+void userinput(char*);
 
 int main(void) {
     Visitor *visitors = (Visitor*)calloc(1, sizeof(Visitor));
@@ -80,20 +80,19 @@ void visit(Visitor *visitors, int *number) {
     }
 
     printf("Bitte Vornamen eingeben:\n");
-
-    cut(visitors[num].firstn);
+    userinput(visitors[num].firstn);
 
     printf("Bitte Nachnamen eingeben:\n");
-    cut(visitors[num].lastn);
+    userinput(visitors[num].lastn);
 
     printf("Bitte PLZ eingeben:\n");
-    cut(visitors[num].plz);
+    userinput(visitors[num].plz);
 
     printf("Vorname: %s\tNachname: %s\tPLZ: %s\n Has been added.\n", visitors[num].firstn, visitors[num].lastn, visitors[num].plz);
 
     //printall(visitors, number);
 }
-void cut(char *string) {
+void userinput(char *string) {
     fgets(string, 20, stdin);
     size_t len = strlen(string);
     if (len > 0 && string[len - 1] == '\n') {
