@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* ============================================================================
+ * Name : assemblyLineOverview.c
+ * Author : Alexander Lux
+ * Version : 1.0
+ * Description : Single Linked List, Werkstueck verwaltung, 3 Attribute, insert, insertafterV, rmLast, rmAfterValue, reset
+ * ============================================================================ */
+
 typedef struct Piece {
     char bezeichnung[10];
     float cost;
