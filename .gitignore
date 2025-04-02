@@ -1,0 +1,63 @@
+# Prerequisites
+*.d
+
+# Build-related files
+*.o
+*.ko
+*.obj
+*.elf
+*.ilk
+*.map
+*.exp
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects & executables
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debugging & IDE metadata
+*.dSYM/
+*.su
+*.idb
+*.pdb
+.idea/
+*.iml
+cmake-build-debug/
+cmake-build-release/
+CMakeLists.txt.user
+
+# Kernel module compile results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Temporary or log files
+*.log
+*.swp
+*.tmp
+
+# Allow only C source, headers, and text files
+!*.c
+!*.h
+!*.txt
+
+# Ignore everything by default *
