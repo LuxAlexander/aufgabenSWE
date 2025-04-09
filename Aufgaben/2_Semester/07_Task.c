@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
     FILE *fptr=NULL;
     Header* head=createHeader();
     Node* node=NULL;
-
+    int choice=10;
     if(argc < 2) {
         fprintf(stderr,"Not enough arguments\n");
         exit(EXIT_FAILURE);
@@ -53,21 +53,48 @@ int main(int argc, const char * argv[]) {
     fptr = fopen(argv[1],"r");//If I already enter the path, it would be ineffecient to also write the filename
     //fptr = fopen(strcat(argv[1],argv[2]),"w");
 
-    node=malloc(sizeof(Node));
 
-    if(node==NULL) {
-        fprintf(stderr,"Error allocating memory\n");
-        exit(EXIT_FAILURE);
+    while (choice != 0) {
+        printf("Finish:[0],Read Data:[1],Search for Text:[2],Search for Konto:[3],printAll:[4],deleteNodeX:[5],safeAll:[6]\n");
+        scanf("%d",&choice);
+
+        switch(choice) {
+            case 1:
+                readData(fptr,head);
+                break;
+            case 2:
+                printf("Input search phrase\n");
+                char search[100];
+                scanf("%s",search);
+                searchText(head,search);
+                break;
+            case 3:
+                printf("Input search Konot\n");
+                char konto[100];
+                scanf("%s",konto);
+                searchKonto(head,konto);
+                break;
+            case 4:
+                printAll(head);
+                break;
+            case 5:
+                printf("Input what node to delete\n");
+                int x=200;
+                scanf("%d",&x);
+                deleteNodeX(head,x);
+                break;
+            case 6:
+                safeAll(head);
+                break;
+            case 0:
+                printf("bye bye");
+                break;
+            default:
+                printf("Wrong choice\n");
+
+        }
+
     }
-
-    readData(fptr, head);
-    searchText(head,"Alex");
-    searchKonto(head,"0650");
-    printAll(head);
-    deleteNodeX(head,2);
-    printAll(head);
-
-    safeAll(head);
 
 
     freeall(head);
@@ -166,8 +193,6 @@ void searchKonto(Header* head, char *text) {
         }
         temp = temp->next;
     }
-    printf("No matching Konto found\n\n");
-
 }
 
 void printAll(Header* list) {
