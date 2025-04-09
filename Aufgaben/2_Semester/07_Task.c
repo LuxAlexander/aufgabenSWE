@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
 
 
     while (choice != 0) {
-        printf("Finish:[0],Read Data:[1],Search for Text:[2],Search for Konto:[3],printAll:[4],deleteNodeX:[5],safeAll:[6]\n");
+        printf("Finish:[0],Read Data:[1],Search for Text:[2],Search for Konto:[3],printAll:[4],deleteNodeX:[5],safeAll:[6],AddNewNode[7]\n");
         scanf("%d",&choice);
 
         switch(choice) {
@@ -85,6 +85,28 @@ int main(int argc, const char * argv[]) {
                 break;
             case 6:
                 safeAll(head);
+                break;
+            case 7:
+                char text[100];
+                node=malloc(sizeof(Node));
+                printf("Input Soll\n");
+                scanf("%s",text);
+                strcpy(node->data.soll,text);
+
+                printf("Input Habe\n");
+                scanf("%s",text);
+                strcpy(node->data.haben,text);
+
+                printf("Input Text\n");
+                scanf("%s",text);
+
+                strcpy(node->data.text,text);
+
+                printf("Input Betrag\n");
+                scanf("%s",text);
+                node->data.betrag=atof(text);
+                node->next=NULL;
+                addNode(head,node);
                 break;
             case 0:
                 printf("bye bye");
@@ -119,6 +141,9 @@ void readData(FILE* fptr, Header* head) {
     Node* node=head->first;
     char* temp=NULL;
     char line[100];
+    while (node!=NULL) {
+        node=node->next;
+    }
     while(fgets(line, 100, fptr )!= NULL) {
         if(node==NULL) {
             node=malloc(sizeof(Node));
