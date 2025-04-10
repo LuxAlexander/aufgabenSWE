@@ -25,8 +25,8 @@ typedef struct Node {
 
 typedef struct Header {
     int cnt;
-    struct Node* first;
-    struct Node* last;
+    Node* first;
+    Node* last;
 }Header;
 
 Header* createHeader();
@@ -46,6 +46,7 @@ int main(int argc, const char * argv[]) {
     Header* head=createHeader();
     Node* node=NULL;
     int choice=10;
+
     if(argc < 2) {
         fprintf(stderr,"Not enough arguments\n");
         exit(EXIT_FAILURE);
@@ -90,7 +91,7 @@ int main(int argc, const char * argv[]) {
                 char text[100];
                 node=malloc(sizeof(Node));
                 printf("Input Soll\n");
-                scanf("%s",text);
+                scanf("%s",text);//fgets limit
                 strcpy(node->data.soll,text);
 
                 printf("Input Habe\n");
@@ -100,7 +101,7 @@ int main(int argc, const char * argv[]) {
                 printf("Input Text\n");
                 scanf("%s",text);
 
-                strcpy(node->data.text,text);
+                strcpy(node->data.text,text);//Funktion auslaugern
 
                 printf("Input Betrag\n");
                 scanf("%s",text);
@@ -118,8 +119,8 @@ int main(int argc, const char * argv[]) {
 
     }
 
-
     freeall(head);
+
     return 0;
 }
 
@@ -169,7 +170,7 @@ void readData(FILE* fptr, Header* head) {
 }
 void addNode(Header* list, Node* data) {
     if (list==NULL||data==NULL) {
-        return;
+        exit(EXIT_FAILURE);
     }
     if (list->first==NULL) {
         list->first = data;
@@ -242,6 +243,7 @@ void safeAll(Header* head) {
         fprintf(stderr,"Error creating file\n");
         exit(EXIT_FAILURE);
     }
+
     Node* temp = head->first;
     while (temp!=NULL) {
         printf("Writing to file\n");
