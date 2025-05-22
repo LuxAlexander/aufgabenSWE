@@ -108,7 +108,6 @@ Node* deleteNode(Node* root, int number) {
         }
         root->number = temp->number;
         root->right = deleteNode(root->right, temp->number);
-        free(root);
     }
 
     return root;
